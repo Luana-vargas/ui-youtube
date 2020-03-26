@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 }
 
 @Composable
-// view responsável por criar o card do video
+
 fun VideoView(index: Int) {
     //alinhamento vertical
     Column(
@@ -60,7 +60,6 @@ fun VideoView(index: Int) {
                     style = +themeTextStyle { subtitle1 })
                 Text(text = "Hello, World!$index",
                     style = +themeTextStyle { subtitle2.copy(color = Color.Gray) })
-
             }
         }
     }
@@ -68,23 +67,22 @@ fun VideoView(index: Int) {
 
 @Composable
 fun TopBar() {
-    TopAppBar<String>(title = {
-            Text(text = "YouTube")
+    TopAppBar<String>(
+        color = Color.White,
+        title = {
+        Text(text = "YouTube")
         }, actionData = emptyList(),
             navigationIcon = {
-                Container(width = 32.dp, height = 32.dp) {
+                Container(width = 36.dp, height = 36.dp) {
                     DrawImage(image = +imageResource(R.drawable.ic_yt))
                 }
             }) {
-
     }
 }
 
-
-//não há necessidade de adapter, basta fazer integração das views
 @Composable
 fun Root() {
-    //para a TopBar não cortar parte da imagem, precisa passar o modifier
+    //Inserindo Modifier para a TopBar não cortar parte da imagem
     Container(modifier = Spacing(0.dp, 56.dp, 0.dp, 0.dp)) {
 
         //para manipular de forma vertical em uma rolagem
@@ -96,12 +94,11 @@ fun Root() {
             }
         }
     }
+
     Column() {
         TopBar()
     }
-
 }
-
 
 @Composable
 fun Greeting(name: String) {
@@ -116,4 +113,3 @@ fun DefaultPreview() {
     }
 }
 
-// 42 min de video
